@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>正方形：svg标签里的style是svg的属性，不是css属性。</div>
+    <svg style="background:pink;width:100px;height:100px">
+       
+     </svg>
+     <div>绘制圆形 :cx和cy表示圆心的坐标，r表示圆的半径, 不能用px</div>
+     <svg>
+        <circle cx="100" cy="50" r="40" stroke-width="2" fill="red"/>
+     </svg>
+
+     <div>绘制椭圆：和圆形差不多，就是半径rx/rx </div>
+
+    <svg> 
+    <ellipse cx="100" cy="50" rx="50" rx="30"
+                style="stroke:#006600; fill:#00cc00"/>
+    </svg>     
+    <div>绘制直线</div>
+    <svg>
+        <line x1="20" y1="20"  x2="100" y2="100" style="stroke: black;"/>
+    </svg>
+</body>
+</html>
