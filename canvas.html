@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+</head>
+<body>
+    <h1>1、填充画布</h1>
+    <div>getContext("2d")是内建的html5对象，拥有多种绘制路径，矩形，圆形，字符和图像的方法。
+        设计fillStyle属性可以是css颜色、渐变或图案，fillStyle的默认值是“#000000”。
+    </div>
+
+<canvas id="myCanvas" width="200px" height="100px" style="border:1px solid #333">
+</canvas>
+    <h1>2、canvas中的路径</h1>
+    <div>在canvas中画线我们将使用两种方法:
+        moveTo(x,y)路径开始的坐标
+        lineTo(x,y)路径结束的坐标
+        stroke();绘制
+    </div>
+
+<canvas id="myCanvas2" width="200px" height="100px" style="1px solid #333">
+</canvas>
+    <h1>3、canvas中绘制圆</h1>
+
+<canvas id="myCanvas3" width="200px" height="100px" style="1px solid #333">
+</canvas>
+    <h1>4、canvas绘制文本</h1>
+    <div>canvas绘制文本主要属性如下：
+        font——定义字体样式；
+        fillText(text,x,y)——在canvas上绘制实心的文本
+        strokeText(text,x,y)——在canvas上绘制空心的文本
+    </div>
+
+<canvas id="myCanvas4" width="200px" height="100px" style="1px solid #333">
+</canvas>
+
+    <h1>5、canvas绘制图像</h1>
+    <div>把一副图片绘制到画布上
+        drawImage(img,x,y);
+    </div>
+    <img id="scream" style="width: 200px;" src="./img/team.jpg"/>
+
+<canvas id="myCanvas5" width="250" height="300" style="border:1px solid #d3d3d3;">
+    您的浏览器不支持 HTML5 canvas 标签。</canvas>
+
+    <h1>6、canvas绘制视频</h1>
+    <p>要使用的视频：</p>
+
+    <video id="video1" controls width="270" autoplay>
+    <source src="./img/mov_bbb.mp4" type='video/mp4'>
+    <source src="./img/mov_bbb.ogg" type='video/ogg'>
+    <source src="./img/mov_bbb.webm" type='video/webm'>
+    </video>
+
+    <p>画布（每 20 毫秒，代码就会绘制视频的当前帧）：</p>
+    <canvas id="myCanvas6" width="270" height="135" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.
+        </canvas>
+</body>
+<script>
+
+</script>
+    <!-- 1、填充画布 -->
+<script type="text/javascript">
+    var c=document.getElementById("myCanvas");
+    var ct=c.getContext("2d");
+    ct.fillStyle="#ccc";
+    ct.fillRect(5,10,150,10);
+</script>
+
+<!-- 2、canvas中的路径 -->
+<script type="text/javascript">
+    var c=document.getElementById("myCanvas2");
+    var ct=c.getContext("2d");
+    ct.moveTo(0,0);
+    ct.lineTo(50,50);
+    ct.stroke();
+</script>
+
+<!-- 3、canvas中绘制圆 -->
+<script type="text/javascript">
+    var c=document.getElementById("myCanvas3");
+    var ct=c.getContext("2d");
+    ct.beginPath();
+    ct.arc(50,50,30,0,2*Math.PI);
+    ct.stroke();
+</script>
+
+<!-- 4、canvas绘制文本 -->
+<script>
+var c=document.getElementById("myCanvas4");
+    var ct=c.getContext("2d");
+    ct.font="30px Arial";
+    ct.fillText("Hello World",10,50);
+    ct.strokeText("Hello web",20,20);
+</script>
+
+<!-- 5、canvas绘制图像 -->
+<script>
+    var c=document.getElementById("myCanvas5");
+    var ctx=c.getContext("2d");
+    var img=document.getElementById("scream");
+
+    img.onload = function() {
+        ctx.drawImage(img,10,10);
+    } 
+</script>
+
+<!-- 6、canvas绘制视频 -->
+    <script>
+    
+    var v=document.getElementById("video1");
+    var c=document.getElementById("myCanvas6");
+    ctx=c.getContext('2d');
+    
+    v.addEventListener('play', function() {var i=window.setInterval(function() {ctx.drawImage(v,0,0,270,135)},20);},false);
+    v.addEventListener('pause',function() {window.clearInterval(i);},false);
+    v.addEventListener('ended',function() {clearInterval(i);},false);  
+    
+</script>
+
+</html>
